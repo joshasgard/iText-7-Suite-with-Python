@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "06509f7e-fb1e-4c8d-bacb-8b5a562d8001",
+		"name": "webdemo-api-3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Job Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ITWD-Access-Token",
+						"value": "Du7rrriMwAmT",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.143.233.206:8080/api/job/e9ded4ad-3195-4fae-8dc7-2fb37c6f6f3e",
+					"protocol": "http",
+					"host": [
+						"3",
+						"143",
+						"233",
+						"206"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"job",
+						"e9ded4ad-3195-4fae-8dc7-2fb37c6f6f3e"
+					]
+				},
+				"description": "Get job info by id. Use it to check job processing status"
+			},
+			"response": []
+		},
+		{
+			"name": "Get File",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ITWD-Access-Token",
+						"value": "AR3XX37nfuIg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.143.233.206:8080/api/job/e9ded4ad-3195-4fae-8dc7-2fb37c6f6f3e/file/result",
+					"protocol": "http",
+					"host": [
+						"3",
+						"143",
+						"233",
+						"206"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"job",
+						"e9ded4ad-3195-4fae-8dc7-2fb37c6f6f3e",
+						"file",
+						"result"
+					]
+				},
+				"description": "Get a result of job processing"
+			},
+			"response": []
+		},
+		{
+			"name": "Send PDF to Image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ITWD-Access-Token",
+						"value": "BE/yySVREiMz",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job",
+							"value": "{\"request\": {\n    \"type\":\"PDF_TO_IMAGES\",\n    \"imageType\":\"JPEG\",\n    \"pageNumbers\":\"9-15\",\n    \"defaultPageScaling\":1\n    },\n \"sourceFiles\":\n  [{\n   \"checksum\":\"5b3241add53b790f3e815dde5d7ceffb\",\n    \"fileType\":\"application/pdf\",\n    \"fileSize\":680490,\n    \"fileName\":\"test.pdf\"}]\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"contentType": "application/pdf",
+							"type": "file",
+							"src": "/Users/victoria/webdemo-backend/backend/src/test/resources/files/test.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/job/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"job",
+						""
+					]
+				},
+				"description": "Create and start a job with a set request. Note that sample request body contains PDF_TO_IMAGES use-case."
+			},
+			"response": []
+		},
+		{
+			"name": "Upload License File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "licenseFiles",
+							"type": "file",
+							"src": "/Users/victoria/itext/licenses/license.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://18.222.229.160:8080/api/license/upload",
+					"protocol": "http",
+					"host": [
+						"18",
+						"222",
+						"229",
+						"160"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"license",
+						"upload"
+					]
+				},
+				"description": "Upload an iText license file. note that only license files in JSON format are supported."
+			},
+			"response": []
+		},
+		{
+			"name": "Send DOC for PDF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job",
+							"value": "{\"request\": {\n    \"type\":\"PDF_OFFICE\",\n    \"fileExt\":\"docx\"\n   },\n \"sourceFiles\":\n  [{\n   \"checksum\":\"1a52931615f8c923f7b2a6c2a1655043\",\n    \"fileType\":\"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\n    \"fileSize\":533234,\n    \"fileName\":\"pdf2Data editor UX.docx\"}]\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "pdf2Data editor UX.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://3.143.233.206:8080/api/job/",
+					"protocol": "http",
+					"host": [
+						"3",
+						"143",
+						"233",
+						"206"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"job",
+						""
+					]
+				},
+				"description": "Creates and starets a new PdfOffice job."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "AWS IP",
+			"value": "3.143.233.206"
+		}
+	]
+}
