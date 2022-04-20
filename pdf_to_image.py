@@ -15,7 +15,7 @@ payload = {
             "checksum": "a0078eae317194bf913db457b16a54fd",
             "fileType": "application/pdf",
             "fileSize": 318046,
-            "fileName": "NPHCDA- COVID-19.pdf",
+            "fileName": "test.pdf",
         },
     }
 }
@@ -26,7 +26,7 @@ headers = {
     "Connection": "keep-alive",
 }
 
-files = {"file": open("NPHCDA- COVID-19.pdf", "rb")}
+files = {"file": open("test.pdf", "rb")}
 
 
 response = requests.post(API_URL, data=payload, files=files, headers=headers)
