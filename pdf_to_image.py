@@ -1,8 +1,8 @@
 import requests
-import json
 
 API_URL = "http://18.224.190.115:8080/api/job/"
 
+# Send Post Request for PDF to IMAGE CONVERSION
 payload = {
     "job": {
         "request": {
@@ -30,5 +30,4 @@ files = {"file": open("NPHCDA- COVID-19.pdf", "rb")}
 
 
 response = requests.post(API_URL, data=payload, files=files, headers=headers)
-
 print(response.text)
