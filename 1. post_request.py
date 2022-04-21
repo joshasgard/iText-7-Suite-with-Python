@@ -22,7 +22,6 @@ payload = {
 
 headers = {
     "Content-Type": "multipart/form-data;boundary=----arbitraryboundary",
-    "Accept-Encoding": "gzip, deflate, br",
     "Connection": "keep-alive",
 }
 
